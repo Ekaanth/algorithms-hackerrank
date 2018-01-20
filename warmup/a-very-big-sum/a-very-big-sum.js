@@ -4,4 +4,5 @@ function aVeryBigSum(n, ar) {
         total += number;
     })
     return total;
-}
+}   
+console.log(aVeryBigSum(3, [1,2,3]));
