@@ -10,6 +10,13 @@ function miniMaxSum(arr) {
         })
         minMaxSumArray.push(total);
     }
-    return [Math.min(...minMaxSumArray), Math.max(...minMaxSumArray)]
+    let isSameArrayValues = !!array.reduce((a, b) => (a === b) ? a : NaN);
+    if (isSameArrayValues){
+        minMaxSumArray = arr;
+        console.log(arr[0]* (arr.length - 1), arr[0]* (arr.length - 1))
+    }else {
+        console.log(Math.min(...minMaxSumArray), Math.max(...minMaxSumArray))
+    }
+     
 }
-console.log(miniMaxSum([1, 2, 3, 4, 5]));
+miniMaxSum([5, 5, 5, 5, 5]) 
