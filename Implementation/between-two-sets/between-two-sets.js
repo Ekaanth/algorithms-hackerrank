@@ -1,17 +1,20 @@
 function getTotalX(a, b) {
     aFactors = [];
     bFactors = [];
-    allFactorsArrayinA = [];
+    allFactorsArrayinA = new Set([])
 
     a.map(number => {
-        let currentNumberFactors = [number]
+
         for (let i = 1; i <= number; i++) {
-            if(i * number === number){
-            currentNumberFactors.push(i);
+        for (let j = 1; j <= 10; j++) {
+            // console.log(`${i} * ${j}=`, j * i );
+            const current = j * i;
+            if(current === number){
+                allFactorsArrayinA.add(i)
             }
-            console.log('currentNumberFactors', currentNumberFactors);
-            
-            allFactorsArrayinA.push(currentNumberFactors)
+
+        }
+
         }
     })
     console.log(allFactorsArrayinA);
