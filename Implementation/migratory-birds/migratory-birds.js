@@ -9,12 +9,19 @@ function migratoryBirds(n, ar) {
             currentFlock[`${bird}`] = currentFlock[bird] + 1 ;
         }
     })
-    console.log(currentFlock);
-    let max = Object.keys(currentFlock).reduce((a, b) => currentFlock[a] > currentFlock[b] ? currentFlock[b] : currentFlock[b]);
-    console.log(max);
-    
-    
-    console.log('XXXX', Object.keys(currentFlock).filter(key => currentFlock[key] === max));
+    let max = 0;
+     Object.keys(currentFlock).map(b => {
+        if (currentFlock[b] > max){
+            max = currentFlock[b];
+        }
+    })
+    maxItems = Object.keys(currentFlock).filter(key => currentFlock[key] === max);
+    if (maxItems.length === 1){
+        return maxItems[0]
+    }else {
+        return Math.min(...maxItems.map(Number))
+    }
+
      
 }
-migratoryBirds(6, [1, 4, 4, 4, 5, 3]);
+console.log(migratoryBirds(6, [1, 4, 4, 2, 5, 5]));
