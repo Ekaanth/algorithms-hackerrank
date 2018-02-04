@@ -1,19 +1,37 @@
-function super_reduced_string(s){
-  const temp = s.split('');
-  const stringArray = temp.slice();
-  for (let i = 0; i < temp.length; i++) {
-      current = temp[i];
-      next = temp[i + 1];
-      console.log('current:', current);
-      console.log('next:', next);
-      
-    if( temp[i] === next){
-      stringArray[i] = '0';
-      stringArray[i + 1] = '0';
-      i++;
-      console.log('Temp after pop:', stringArray);
+function eliminator(array){
+  for (let i = 0; i < array.length; i++) {
+    current = array[i];
+    next = array[i + 1];
+    if (current === next) {
+      array.splice(i, 2);
     }
   }
-  console.log('Final:', stringArray);
+  return array
 }
-super_reduced_string('aaabccddd');
+function checker(array) {
+  for (let i = 0; i < array.length; i++) {
+    current = array[i];
+    next = array[i + 1];
+    if (array[i] === next) {
+     return true
+    }
+    else false
+  }
+  
+}
+function super_reduced_string(s) {
+  let temp = s.split('');
+  const stringArray = temp.slice();
+  do {
+    temp = eliminator(temp);
+  } while (checker(temp));
+  
+  if (temp.length > 0) {
+    return temp.join('')
+  } else {
+    return 'Empty String';
+  }
+}
+console.log(super_reduced_string('aaabccddd'));
+console.log(super_reduced_string('lrfkqyuqfjjfquyqkfrlkxyqvnrtyssytrnvqyxkfrzrmzlygffgylzmrzrfveulqfpdbhhbdpfqluevlqdqrrcrwddwrcrrqdql'));
+console.log(super_reduced_string('baab'));
