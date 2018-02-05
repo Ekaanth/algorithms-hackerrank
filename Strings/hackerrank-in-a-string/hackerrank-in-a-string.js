@@ -1,9 +1,12 @@
 function checker(data) {
-    
   if(data['h0'] <= data['a1']  &&
+     data['a1'] <= data['c2'] &&
      data['c2'] <= data['k3'] &&
+     data['k3'] <= data['e4'] &&
      data['e4'] <= data['r5'] &&
+     data['r5'] <= data['r6'] &&
      data['r6'] <= data['a7'] &&
+     data['a7'] <= data['n8'] &&
      data['n8'] <= data['k9']
 ){
   return true;
@@ -42,15 +45,19 @@ function hackerrankInString(s) {
         }
       })
       let mapper = {};
+      console.log(alphaCount);
+      
       for (let i = 0; i < test.length; i++) {
-        mapper[`${test[i]}${i}`] = wordArray.indexOf(test[i]);
+       if(alphaCount['r'] >= 2){
+          mapper[`${test[i]}${i}`] = wordArray.indexOf(test[i]);
         for (let j = 1; j <= wordArray.indexOf(test[i]); j++) {
           wordArray[wordArray.indexOf(test[i]) - j] = 0;
-          console.log(wordArray);
-          
+          // console.log(wordArray);
         }
+       }
       }
-
+      console.log(mapper);
+      
       if (count === 10 && checker(mapper)) {
         output.push('YES');
       } else {
