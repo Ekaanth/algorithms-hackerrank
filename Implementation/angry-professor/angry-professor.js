@@ -26,18 +26,13 @@ function angryProfessor(k, a) {
     if(student > 0){
       lateCount++;
     }
-  })
-  // console.log(lateCount);
-  
+  })  
   if((a.length - lateCount) < k){
-    console.log('lateCount', lateCount, k);
-    
     return 'YES'
   }else{
     console.log('lateCount', lateCount, k);
     return 'NO'
   }
-  
 }
 // console.log(angryProfessor(7, [26, 94, -95, 34, 67, -97, 17, 52, 1, 86]));
 
