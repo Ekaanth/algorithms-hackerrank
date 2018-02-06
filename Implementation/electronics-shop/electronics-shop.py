@@ -6,10 +6,7 @@ def getMoneySpent(keyboards, drives, s):
             if cost < s:
                 costArray.append(cost)
     if len(costArray) > 0:
-        print(costArray)
+        print('Out', max(costArray))
         return max(costArray)
     else:
         return -1
-
-getMoneySpent([ 3, 1 ], [ 5, 2, 8 ], 10)
-getMoneySpent([4], [5], 5)

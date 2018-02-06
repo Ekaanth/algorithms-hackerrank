@@ -12,5 +12,3 @@ function getMoneySpent(keyboards, drives, s){
     return Math.max(...costArray)
   }else return -1
 }
-getMoneySpent([ 3, 1 ], [ 5, 2, 8 ], 10)
-getMoneySpent([4], [5], 5)
