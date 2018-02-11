@@ -5,7 +5,10 @@ Problems in algorithm section Hackerrank using Javascript and python.
 
  ![Alt](/logo.svg "Hackerrank")
 
-![Progress](http://progressed.io/bar/68?title=Progress)
+![Rank](https://img.shields.io/badge/Rank:%20-38151-blue.svg?style=for-the-badge)
+
+![points](https://img.shields.io/badge/Points%20-981.46-brightgreen.svg?style=for-the-badge)
+
 ##### General status of hackerrank problems.
 
 | Problem Name                        |Subdomain         |Max Score| Status                                  | Language    | Level    |  Date       |
