@@ -1,6 +1,8 @@
 def taumBday(b, w, x, y, z):
     if ((x == y and y == z) or (x < z and y < z)):
         return b * x + w * y
+    if ((x == y and x != z)):
+        return b * x + w * y
     if (x > y and x > z):
         costs = []
         whiteToBlackCost = y + z
@@ -19,4 +21,5 @@ def taumBday(b, w, x, y, z):
         return min(costs)
 
 
-print(taumBday(10, 10, 1, 1, 1))
+print(taumBday(100, 100,
+               10000, 10000, 0))
