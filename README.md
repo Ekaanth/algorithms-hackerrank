@@ -2,9 +2,9 @@
 
 ![Alt](/logo.svg "Hackerrank")
 
-![Rank](https://img.shields.io/badge/Rank:%20-34955-blue.svg?style=for-the-badge)
+![Rank](https://img.shields.io/badge/Rank:%20-30754-blue.svg?style=for-the-badge)
 
-![points](https://img.shields.io/badge/Points%20-1041.69-brightgreen.svg?style=for-the-badge)
+![points](https://img.shields.io/badge/Points%20-1134.02-brightgreen.svg?style=for-the-badge)
 
 ##### General status of hackerrank problems.
 
