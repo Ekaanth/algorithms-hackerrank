@@ -19,57 +19,24 @@ function readLine() {
 }
 
 /////////////// ignore above this line ////////////////////
-
-function generatePermutations(array) {
-  let result = [];
-  for (let i = 0; i < array.length; i = i + 1) {
-    let rest = generatePermutations(
-      array.slice(0, i).concat(array.slice(i + 1))
-    );
-    if (!rest.length) {
-      result.push([array[i]]);
-    } else {
-      for (let j = 0; j < rest.length; j = j + 1) {
-        result.push([array[i]].concat(rest[j]));
-      }
+function generatePermutations(k, A, B) {
+  const ascend = (a, b) => a - b;
+  const descend = (a, b) => b - a;
+  sortedA = A.sort(ascend);
+  sortedB = B.sort(descend);
+  for (let i = 0; i < sortedA.length; i++) {
+    if (sortedA[i] + sortedB[i] < k) {
+      return false;
     }
   }
-  return result;
+  return true;
 }
 function twoArrays(k, A, B) {
-  aCount = 0;
-
-  for (let i = 0; i < A.length; i++) {
-    if (A[i] > 1) {
-      aCount++;
-    }
+  if (generatePermutations(k, A, B)) {
+    return 'YES';
+  } else {
+    return 'NO';
   }
-  console.log(aCount, A.length - 1);
-
-  if (aCount >= A.length - 1) {
-    permsA = generatePermutations(A);
-    permsB = generatePermutations(B);
-    count = 0;
-    permsA.forEach(aI => {
-      permsB.forEach(bI => {
-        for (let i = 0; i < Math.max(permsA.length, permsB.length); i++) {
-          if (aI[i] + bI[i] >= k) {
-            count++;
-            break;
-          }
-        }
-      });
-    });
-    console.log(count);
-
-    if (count === A.length) {
-      return 'YES';
-    } else {
-      return 'NO';
-    }
-  }
-  //   console.log(permsA);
-  //   console.log(permsB);
 }
 
 function main() {
