@@ -1,41 +1,18 @@
-function hasOdd(B) {
-  for (let i = 0; i < B.length; i++) {
-    if (B[i] % 2 !== 0) {
-      return true;
-    } else return false;
-  }
-}
-
 function fairRations(B) {
+  n = B.length;
   count = 0;
   for (let i = 0; i < B.length; i++) {
-    if (
-      B[i] !== undefined &&
-      B[i + 1] !== undefined &&
-      B[i - 1] !== undefined
-    ) {
-      do {
-        if (B[i] % 2 !== 0) {
-          count++;
-          B[i] += 1;
-          if (B[i + 1] % 2 !== 0 || B[i + 1] % 2 === 0) {
-            count++;
-            B[i + 1] += 1;
-          }
-          if (B[i - 1] % 2 !== 0) {
-            count++;
-            B[i - 1] += 1;
-          }
-        }
-      } while (hasOdd(B));
+    if (n - 1 === i) {
+      return B[i] % 2 === 1 ? 'NO' : count;
     }
-  }
-  if (count < 0) {
-    return 'NO';
-  } else {
-    return count;
+    if (B[i] % 2 === 1) {
+      B[i] = B[i] + 1;
+      B[i + 1] = B[i + 1] + 1;
+      count = count + 2;
+    }
   }
 }
 
-fairRations([2, 3, 4, 5, 6]);
+console.log(fairRations([1, 2]));
+
 fairRations([1, 2]);
