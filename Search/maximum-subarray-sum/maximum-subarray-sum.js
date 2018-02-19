@@ -21,22 +21,24 @@ function readLine() {
 /////////////// ignore above this line ////////////////////
 
 function generateSubArrays(arr) {
-  return arr;
+  if (arr.length === 1) return [arr];
+  else {
+    subarr = generateSubArrays(arr.slice(1));
+    return subarr.concat(subarr.map(e => e.concat(arr[0])), [[arr[0]]]);
+  }
 }
 function maximumSum(a, m) {
   modValues = [];
   subArrays = generateSubArrays(a);
-  console.log(subArrays);
-
-  //   subArrays.map(arr => {
-  //     if (arr.length === 1) {
-  //       modValues.push(arr[0] % m);
-  //     } else {
-  //       let sum = (a, b) => a + b;
-  //       total = arr.reduce(sum);
-  //       modValues.push(total % m);
-  //     }
-  //   });
+  subArrays.map(arr => {
+    if (arr.length === 1) {
+      modValues.push(arr[0] % m);
+    } else {
+      let sum = (a, b) => a + b;
+      total = arr.reduce(sum);
+      modValues.push(total % m);
+    }
+  });
   return Math.max(...modValues);
 }
 
