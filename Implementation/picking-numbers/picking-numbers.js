@@ -1,3 +1,25 @@
+process.stdin.resume();
+process.stdin.setEncoding('ascii');
+
+var input_stdin = '';
+var input_stdin_array = '';
+var input_currentline = 0;
+
+process.stdin.on('data', function(data) {
+  input_stdin += data;
+});
+
+process.stdin.on('end', function() {
+  input_stdin_array = input_stdin.split('\n');
+  main();
+});
+
+function readLine() {
+  return input_stdin_array[input_currentline++];
+}
+
+/////////////// ignore above this line ////////////////////
+
 function pickingNumbers(a) {
   countedNumbers = a.reduce((allNumbers, num) => {
     if (num in allNumbers) {
@@ -10,11 +32,7 @@ function pickingNumbers(a) {
   countedKeys = Object.keys(countedNumbers);
   selectedKeys = [];
   for (let i = 0; i < countedKeys.length - 1; i++) {
-    if (
-      Math.abs(
-        countedNumbers[countedKeys[i + 1]] - countedNumbers[countedKeys[i]]
-      ) === 1
-    ) {
+    if (countedKeys[i + 1] - countedKeys[i] == 1) {
       selectedKeys.push(
         countedNumbers[countedKeys[i]] + countedNumbers[countedKeys[i + 1]]
       );
@@ -27,8 +45,16 @@ function pickingNumbers(a) {
       values.push(value);
     }
   }
+  //   console.log(selectedKeys);
+
   keysAndMostFrequency = selectedKeys.concat(values);
-  console.log(keysAndMostFrequency);
+  //   console.log(keysAndMostFrequency);
   return Math.max(...keysAndMostFrequency);
 }
-pickingNumbers([4, 6, 5, 3, 3, 1]);
+function main() {
+  var n = parseInt(readLine());
+  a = readLine().split(' ');
+  a = a.map(Number);
+  var result = pickingNumbers(a);
+  process.stdout.write('' + result + '\n');
+}
