@@ -1,15 +1,20 @@
-function passwordCracker(pass, attempt) {
-  for (let i = 0; i <= attempt.length + 1; i++) {
-    console.log(attempt.slice(i, i + 2));
-    if (pass.includes(attempt.slice(i, i + 2))) {
-      console.log(
-        attempt.split('').slice(i, i + 2),
-        pass.includes(attempt.slice(i, i + 2))
-      );
+var matchedWords = [];
+function passwordCracker(pass, attempt, words = []) {
+  for (let i = 1; i <= attempt.length + 1; i++) {
+    for (let j = 0; j < attempt.length - i; j++) {
+      current = attempt.slice(j, j + i + 1);
+      console.log(current);
+
+      if (pass.includes(current)) {
+        wordsList = words.concat([current]);
+        if (i > pass.length) {
+          passwordCracker(current, attempt, wordsList);
+        } else matchedWords.push(wordsList);
+      }
     }
   }
 }
-passwordCracker(
-  ['because', 'can', 'do', 'must', 'we', 'what'],
-  'wedowhatwemustbecausewecan'
-);
+
+// passwordCracker(['ab', 'abcd', 'cd'], 'abcd');
+passwordCracker(['hello', 'planet'], 'helloworld');
+console.log(matchedWords ? matchedWords : 'WRONG PASSWORD');
