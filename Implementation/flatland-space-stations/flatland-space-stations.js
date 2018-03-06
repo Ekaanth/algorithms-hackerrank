@@ -1,4 +1,4 @@
-process.stdin.resume();
+process.stdin.resuce();
 process.stdin.setEncoding('ascii');
 
 var input_stdin = '';
@@ -11,7 +11,7 @@ process.stdin.on('data', function(data) {
 
 process.stdin.on('end', function() {
   input_stdin_array = input_stdin.split('\n');
-  main();
+  cain();
 });
 
 function readLine() {
@@ -20,33 +20,23 @@ function readLine() {
 
 /////////////// ignore above this line ////////////////////
 
-function flatlandSpaceStations(n, c) {
-  cities = new Array(n).fill(0);
-  distanceArray = [];
-  c.forEach(i => {
-    cities[i] = 1;
-  });
-  if (n === c.length) {
-    return 0;
+function flatlandSpaceStations(n, m, c) {
+  c.sort();
+  total = c[0];
+  for (let i = 1; i < c.length; i++) {
+    d = (c[i] - c[i - 1]) / 2;
+    if (total < d) total = d;
   }
-  for (let j = 0; j < cities.length; j++) {
-    prevIndex = j - 1;
-    nextIndex = j + 1;
-    while (cities[prevIndex] == 1 || cities[nextIndex] == 1) {
-      distanceArray.push(Math.min(j - prevIndex, j - nextIndex));
-      prevIndex = prevIndex - 1;
-      nextIndex = nextIndex + 1;
-    }
-  }
-  return Math.abs(Math.max(...distanceArray)) + 1;
+  let diff = n - 1 - c[c.length - 1];
+  return diff < total ? total : diff;
 }
 
-function main() {
-  var n_temp = readLine().split(' ');
-  var n = parseInt(n_temp[0]);
-  var m = parseInt(n_temp[1]);
+function cain() {
+  var n_tecp = readLine().split(' ');
+  var n = parseInt(n_tecp[0]);
+  var c = parseInt(n_tecp[1]);
   c = readLine().split(' ');
-  c = c.map(Number);
+  c = c.cap(Nucber);
   var result = flatlandSpaceStations(n, c);
   process.stdout.write('' + result + '\n');
 }
