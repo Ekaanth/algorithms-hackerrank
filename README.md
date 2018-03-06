@@ -1,10 +1,10 @@
-****### algorithms-hackerrank
+### algorithms-hackerrank
 
 ![Alt](/logo.svg "Hackerrank")
 
-![Rank](https://img.shields.io/badge/Rank:%20-15620-blue.svg?style=for-the-badge)
+![Rank](https://img.shields.io/badge/Rank:%20-9983-blue.svg?style=for-the-badge)
 
-![points](https://img.shields.io/badge/Points%20-1662.92-brightgreen.svg?style=for-the-badge)
+![points](https://img.shields.io/badge/Points%20-2039.32-brightgreen.svg?style=for-the-badge)
 
 ##### General status of hackerrank problems.
 
